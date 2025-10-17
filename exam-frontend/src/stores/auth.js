@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import axios from "axios";
 
 export const useAuthStore = defineStore("auth", {
+    persist: true,
   state: () => ({
     user: null,
     isAuthenticated: false,
@@ -43,12 +44,12 @@ export const useAuthStore = defineStore("auth", {
       }
     },
 
-    logout() {
-      this.user = null;
-      this.isAuthenticated = false;
-      this.token = '';
-      this.email = '';
-      //delete axios.defaults.headers.common['Authorization'];
-    }
+    // logout() {
+    //   this.user = null;
+    //   this.isAuthenticated = false;
+    //   this.token = '';
+    //   this.email = '';
+    //   //delete axios.defaults.headers.common['Authorization'];
+    // }
   },
 });   

@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const authStore = useAuthStore()
 
@@ -16,6 +19,8 @@ const login = async () => {
     })
     email.value = ''
     password.value = ''
+
+    router.push('/dashboard')
     } catch (error) {
     error.value = error.response
     console.log({error});
